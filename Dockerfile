@@ -1,11 +1,10 @@
-FROM mcr.microsoft.com/playwright:v1.45.0-jammy
+FROM ubuntu:22.04
 
-# Cài Chromium nếu chưa có
-RUN apt-get update && apt-get install -y wget gnupg unzip
+RUN apt-get update && apt-get install -y chromium-browser
 
 EXPOSE 9222
 
-CMD ["chromium", \
+CMD ["chromium-browser", \
   "--no-sandbox", \
   "--disable-dev-shm-usage", \
   "--disable-gpu", \
